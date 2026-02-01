@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SloaneX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="terms-overlay" class="overlay">
+      <div class="terms-modal">
+        <h2>Terms of Agreement</h2>
+        <div id="terms-scroll" class="terms-scroll">
+          <p>
+            By accessing or purchasing services from SloaneX, you acknowledge that
+            all services, content, and communications are provided “as is” and
+            “as available.” You agree that SloaneX, its owners, and affiliates
+            are not liable for any direct, indirect, incidental, consequential,
+            or special damages arising from your use of this site or any
+            services offered. You agree to assume full responsibility for your
+            decisions, actions, and results, and you release SloaneX from all
+            claims, losses, or liabilities of any kind. You confirm that you are
+            legally permitted to access this content in your jurisdiction and
+            that you will comply with all applicable laws. Any payments are
+            final and non-refundable unless explicitly stated otherwise.
+          </p>
+          <p>
+            You further agree that SloaneX is not responsible for service
+            interruptions, delays, errors, or omissions. The site may be updated
+            at any time without notice. By continuing, you confirm you have read
+            and understood these terms and agree to be bound by them.
+          </p>
+        </div>
+        <div class="terms-actions">
+          <button id="agree-btn" class="action-button hidden" disabled>Agree</button>
+          <button id="adult-btn" class="action-button hidden" disabled>
+            I Am Over 18 Years Old
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <header class="nav-bar">
+      <div class="logo">SloaneX</div>
+      <nav>
+        <button class="nav-button" data-target="home-section">Home</button>
+        <button class="nav-button" data-target="exclusive-section">
+          Exclusive Content
+        </button>
+        <button class="nav-button" data-target="admin-section">Admin</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home-section" class="page-section active">
+        <div class="banner" id="banner-box"></div>
+        <div class="home-layout">
+          <div class="home-left">
+            <h1>SloaneX</h1>
+            <p>Sign Up For Exclusive Content</p>
+            <button id="signup-btn" class="action-button">5 CAD billed monthly</button>
+          </div>
+          <div class="home-center">
+            <div class="profile-circle" id="profile-circle"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="exclusive-section" class="page-section">
+        <div class="exclusive-layout">
+          <aside class="sidebar">
+            <button class="sidebar-button" data-subpage="account-view">
+              Account
+            </button>
+            <button class="sidebar-button" data-subpage="subscription-view">
+              Subscription
+            </button>
+            <button class="sidebar-button" data-subpage="support-view">
+              Support
+            </button>
+            <div class="sidebar-spacer"></div>
+            <button id="sidebar-back" class="sidebar-button hidden">
+              Back
+            </button>
+          </aside>
+          <div class="exclusive-content">
+            <div id="exclusive-view" class="exclusive-panel active">
+              <div class="columns">
+                <div class="column">
+                  <h2>Images</h2>
+                  <div id="images-grid" class="content-grid"></div>
+                </div>
+                <div class="column">
+                  <h2>Videos</h2>
+                  <div id="videos-grid" class="content-grid"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="account-view" class="exclusive-panel">
+              <h2 class="under-construction">Under Construction</h2>
+            </div>
+
+            <div id="subscription-view" class="exclusive-panel">
+              <h2 class="under-construction">Under Construction</h2>
+            </div>
+
+            <div id="support-view" class="exclusive-panel">
+              <form id="support-form" class="support-form">
+                <label>
+                  Name
+                  <input type="text" id="support-name" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" id="support-email" required />
+                </label>
+                <label>
+                  Description
+                  <textarea
+                    id="support-description"
+                    maxlength="1200"
+                    rows="6"
+                    required
+                  ></textarea>
+                </label>
+                <button id="support-submit" class="action-button" disabled>
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin-section" class="page-section">
+        <div id="admin-lock" class="admin-lock">
+          <div class="admin-modal">
+            <h2>Enter Admin Code</h2>
+            <input
+              type="password"
+              id="admin-code"
+              placeholder="Admin Code"
+              autocomplete="off"
+            />
+            <button id="admin-submit" class="action-button">Submit</button>
+            <p id="admin-error" class="error-text"></p>
+          </div>
+        </div>
+
+        <div id="admin-content" class="admin-content hidden">
+          <div class="upload-grid">
+            <div class="upload-card" data-upload="profile">
+              <h3>Profile Picture</h3>
+              <div class="drop-zone" data-target="profile">Drop Image Here</div>
+              <input type="file" accept="image/*" class="file-input" />
+              <div class="progress">
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+                <span class="progress-label">0%</span>
+                <span class="progress-time">0s</span>
+              </div>
+            </div>
+            <div class="upload-card" data-upload="banner">
+              <h3>Banner Picture</h3>
+              <div class="drop-zone" data-target="banner">Drop Image Here</div>
+              <input type="file" accept="image/*" class="file-input" />
+              <div class="progress">
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+                <span class="progress-label">0%</span>
+                <span class="progress-time">0s</span>
+              </div>
+            </div>
+            <div class="upload-card" data-upload="images">
+              <h3>Upload Pictures</h3>
+              <div class="drop-zone" data-target="images">Drop Images Here</div>
+              <input type="file" accept="image/*" class="file-input" multiple />
+              <div class="progress">
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+                <span class="progress-label">0%</span>
+                <span class="progress-time">0s</span>
+              </div>
+            </div>
+            <div class="upload-card" data-upload="videos">
+              <h3>Upload Video</h3>
+              <div class="drop-zone" data-target="videos">Drop Videos Here</div>
+              <input type="file" accept="video/*" class="file-input" multiple />
+              <div class="progress">
+                <div class="progress-bar">
+                  <div class="progress-fill"></div>
+                </div>
+                <span class="progress-label">0%</span>
+                <span class="progress-time">0s</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="admin-gallery" class="admin-gallery"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="construction-bubble" class="construction-bubble hidden">
+      Under Construction
+    </div>
+
+    <div id="expand-overlay" class="overlay hidden">
+      <div class="expand-content">
+        <button id="collapse-btn" class="action-button">
+          Click To Collapse
+        </button>
+        <div id="expand-media"></div>
+      </div>
+    </div>
+
+    <div id="delete-confirm" class="delete-confirm hidden">
+      <p>Are You Sure You Want To Delete This Content?</p>
+      <label><input type="checkbox" id="delete-yes" /> Yes</label>
+      <label><input type="checkbox" id="delete-no" /> No</label>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
